@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aspnetcorejsonpatch:
+    image: ${DOCKER_REGISTRY}aspnetcorejsonpatch
+    build:
+      context: .
+      dockerfile: AspNetCoreJsonPatch/Dockerfile
