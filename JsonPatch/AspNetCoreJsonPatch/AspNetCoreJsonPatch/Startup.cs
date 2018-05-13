@@ -1,4 +1,5 @@
-﻿using AspNetCoreJsonPatch.MongoDb;
+﻿using System;
+using AspNetCoreJsonPatch.MongoDb;
 using AspNetCoreJsonPatch.Seed;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,10 +26,11 @@ namespace AspNetCoreJsonPatch
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "My API", Version = "v1"}); });
 
             services.AddSingleton<IMongoDatabaseProvider, MongoDatabaseProvider>();
+            services.AddTransient<DatabaseInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DatabaseInitializer initializer)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
@@ -38,7 +40,7 @@ namespace AspNetCoreJsonPatch
 
             app.UseMvc();
 
-            DatabaseInitializer.Initialize();
+            initializer.Initialize();
         }
     }
 }

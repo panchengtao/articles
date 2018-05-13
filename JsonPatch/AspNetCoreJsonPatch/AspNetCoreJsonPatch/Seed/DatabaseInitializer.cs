@@ -7,14 +7,16 @@ namespace AspNetCoreJsonPatch.Seed
 {
     public class DatabaseInitializer
     {
-        public static void Initialize()
-        {
-            var serviceProvider = new ServiceCollection()
-                .AddSingleton<IMongoDatabaseProvider, MongoDatabaseProvider>()
-                .BuildServiceProvider();
+        private readonly IMongoDatabaseProvider _mongoDatabaseProvider;
 
-            var provider = serviceProvider.GetService<IMongoDatabaseProvider>();
-            var repository = new PersonRepository(provider);
+        public DatabaseInitializer(IMongoDatabaseProvider mongoDatabaseProvider)
+        {
+            _mongoDatabaseProvider = mongoDatabaseProvider;
+        }
+
+        public void Initialize()
+        {
+            var repository = new PersonRepository(_mongoDatabaseProvider);
 
             repository.Database.DropCollection(typeof(Person).Name.ToLower());
             repository.InsertAsync(new Person
