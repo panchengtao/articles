@@ -1,9 +1,7 @@
-﻿using AspNetCoreJsonPatch.Controllers;
-using AspNetCoreJsonPatch.MongoDb;
+﻿using AspNetCoreJsonPatch.Models;
 using AspNetCoreJsonPatch.MongoDb.Repositories;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetCoreJsonPatch.Seed
+namespace AspNetCoreJsonPatch.Infrastructure.SeedData
 {
     public class DatabaseInitializer
     {
@@ -17,7 +15,6 @@ namespace AspNetCoreJsonPatch.Seed
         public void Initialize()
         {
             var repository = new PersonRepository(_mongoDatabaseProvider);
-
             repository.Database.DropCollection(typeof(Person).Name.ToLower());
             repository.InsertAsync(new Person
             {

@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>6b7eec95-6e87-44cd-b786-335f96dfe335</ProjectGuid>
+    <ProjectGuid>bf34d9b8-38c4-48ee-9ad6-c2a95c2a075e</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api/values</DockerServiceUrl>
     <DockerServiceName>aspnetcorejsonpatch</DockerServiceName>

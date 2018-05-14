@@ -6,3 +6,11 @@ services:
     build:
       context: .
       dockerfile: AspNetCoreJsonPatch/Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:80"
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"

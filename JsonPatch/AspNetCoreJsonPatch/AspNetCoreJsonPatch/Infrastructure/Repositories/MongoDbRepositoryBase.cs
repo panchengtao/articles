@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreJsonPatch.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace AspNetCoreJsonPatch.MongoDb.Repositories
+namespace AspNetCoreJsonPatch.Infrastructure.Repositories
 {
     public class MongoDbRepositoryBase<TEntity> : MongoDbRepositoryBase<TEntity, ObjectId>
         where TEntity : class, IEntity<ObjectId>

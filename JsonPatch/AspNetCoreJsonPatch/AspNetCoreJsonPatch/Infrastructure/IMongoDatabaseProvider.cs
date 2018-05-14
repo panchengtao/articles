@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace AspNetCoreJsonPatch.MongoDb
+namespace AspNetCoreJsonPatch.Infrastructure
 {
     public interface IMongoDatabaseProvider
     {

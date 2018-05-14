@@ -1,6 +1,5 @@
-﻿using System;
-using AspNetCoreJsonPatch.MongoDb;
-using AspNetCoreJsonPatch.Seed;
+﻿using AspNetCoreJsonPatch.Infrastructure;
+using AspNetCoreJsonPatch.Infrastructure.SeedData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +24,10 @@ namespace AspNetCoreJsonPatch
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "My API", Version = "v1"}); });
 
+            services.Configure<Settings>(Configuration);
+
             services.AddSingleton<IMongoDatabaseProvider, MongoDatabaseProvider>();
+
             services.AddTransient<DatabaseInitializer>();
         }
 

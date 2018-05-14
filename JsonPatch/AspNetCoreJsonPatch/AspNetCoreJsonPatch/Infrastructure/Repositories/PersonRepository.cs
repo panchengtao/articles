@@ -1,4 +1,6 @@
-﻿using AspNetCoreJsonPatch.Controllers;
+﻿using AspNetCoreJsonPatch.Infrastructure;
+using AspNetCoreJsonPatch.Infrastructure.Repositories;
+using AspNetCoreJsonPatch.Models;
 
 namespace AspNetCoreJsonPatch.MongoDb.Repositories
 {

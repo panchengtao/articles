@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCoreJsonPatch.MongoDb;
+using AspNetCoreJsonPatch.Infrastructure;
+using AspNetCoreJsonPatch.Models;
 using AspNetCoreJsonPatch.MongoDb.Repositories;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -50,25 +51,5 @@ namespace AspNetCoreJsonPatch.Controllers
                 Name = $"{person.FirstName} {person.LastName}"
             };
         }
-    }
-
-    public class Person : IEntity<ObjectId>
-    {
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string Mail { get; set; }
-
-        public string Address { get; set; }
-
-        public ObjectId Id { get; set; }
-    }
-
-    public class PersonDto
-    {
-        public string Name { get; set; }
-
-        public string OId { get; set; }
     }
 }
